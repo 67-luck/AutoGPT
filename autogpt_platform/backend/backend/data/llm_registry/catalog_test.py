@@ -435,6 +435,12 @@ def test_gemini_4_carbon_bills_at_authored_rates():
     assert entry.supports_tools is True
     assert entry.supports_json_output is True
     assert entry.supports_reasoning is True
+    # Provider USD rates let price_for() cost a call when OpenRouter omits
+    # its own cost but reports token usage.
+    assert entry.cost.provider_input_usd_per_1m == 2.00
+    assert entry.cost.provider_output_usd_per_1m == 10.00
+    assert entry.cost.provider_cache_read_usd_per_1m == 0.10
+    assert entry.cost.provider_cache_creation_usd_per_1m == 0.1875
 
 
 def test_gemini_3_8_flash_bills_at_authored_rates():

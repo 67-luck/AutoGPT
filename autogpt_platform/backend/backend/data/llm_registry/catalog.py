@@ -870,6 +870,10 @@ def _build_catalog() -> CatalogPayload:
                     output_credits_per_1m=1500.0,
                     cache_read_credits_per_1m=15.0,
                     cache_creation_credits_per_1m=28.125,
+                    provider_input_usd_per_1m=2.00,
+                    provider_output_usd_per_1m=10.00,
+                    provider_cache_read_usd_per_1m=0.10,
+                    provider_cache_creation_usd_per_1m=0.1875,
                 ),
             ),
             CatalogModel(
